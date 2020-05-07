@@ -140,7 +140,7 @@ export class SNSAdapter implements ISNSAdapter {
                     this.sent(response);
                 }
             };
-            const maybePromise = getHandler()(event, this.createLambdaContext(fn, sendIt), sendIt);
+            const maybePromise = getHandler(event, this.createLambdaContext(fn, sendIt), sendIt);
             if (maybePromise && maybePromise.then) {
                 maybePromise
                     .then(response => sendIt(null, response))
